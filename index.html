@@ -1,177 +1,106 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lateral.in | Online Store</title>
+<title>For My pookiee </title>
 
 <style>
-* {
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
     font-family: Arial, sans-serif;
-}
-
-body {
-    background: #f5f5f5;
-}
-
-/* Navbar */
-header {
-    background: #111;
-    color: white;
-    padding: 15px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 22px;
-    font-weight: bold;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 20px;
-}
-
-.cart {
-    background: crimson;
-    padding: 6px 12px;
-    border-radius: 20px;
-}
-
-/* Hero Section */
-.hero {
-    background: linear-gradient(to right, #000000, #434343);
-    color: white;
     text-align: center;
-    padding: 60px 20px;
+    overflow: hidden;
 }
 
-.hero h1 {
-    font-size: 40px;
+.container {
+    padding: 40px 20px;
 }
 
-.hero p {
-    margin-top: 10px;
+h1 {
+    font-size: 28px;
+    color: white;
 }
 
-/* Products */
-.products {
-    padding: 40px 30px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+p {
+    color: white;
+    font-size: 18px;
 }
 
-.product {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
+button {
+    padding: 12px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
     transition: 0.3s;
 }
 
-.product:hover {
-    transform: translateY(-5px);
-}
-
-.product img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-.product h3 {
-    margin: 10px 0;
-}
-
-.product button {
-    background: #111;
+.yes {
+    background: #ff4d6d;
     color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
 }
 
-.product button:hover {
-    background: crimson;
+.no {
+    background: white;
+    color: #ff4d6d;
+    position: absolute;
 }
 
-/* Footer */
-footer {
-    background: #111;
-    color: white;
-    text-align: center;
-    padding: 20px;
+button:hover {
+    transform: scale(1.1);
+}
+
+.love-message {
     margin-top: 30px;
+    font-size: 22px;
+    color: white;
+    display: none;
+    animation: pop 0.5s ease forwards;
+}
+
+@keyframes pop {
+    from {transform: scale(0);}
+    to {transform: scale(1);}
 }
 
 /* Responsive */
-@media(max-width:600px){
-    .hero h1 {
-        font-size: 26px;
-    }
+@media (max-width:600px) {
+    h1 { font-size: 22px; }
+    p { font-size: 16px; }
 }
 </style>
 </head>
 
 <body>
 
-<header>
-    <div class="logo">Lateral.in</div>
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">Shop</a>
-        <a href="#">Contact</a>
-        <span class="cart">Cart (<span id="cart-count">0</span>)</span>
-    </nav>
-</header>
+<div class="container">
+    <h1>Are You Angry With Me? 😳</h1>
+    <p>Be honest… I’m scared 😭</p>
 
-<section class="hero">
-    <h1>Welcome to Lateral.in</h1>
-    <p>Your favourite online shopping destination</p>
-</section>
+    <button class="yes" onclick="showLove()">Nooo ❤️</button>
+    <button class="no" id="noBtn" onmouseover="moveButton()">Yes 😤</button>
 
-<section class="products">
-    <div class="product">
-        <img src="https://via.placeholder.com/300x200" alt="">
-        <h3>Product 1</h3>
-        <p>₹999</p>
-        <button onclick="addToCart()">Add to Cart</button>
+    <div class="love-message" id="loveMsg">
+        I KNEW IT 😎❤️ <br><br>
+        You are the cutest human alive 🥰 <br>
+        I Love You So much nilummaa 💕
     </div>
-
-    <div class="product">
-        <img src="https://via.placeholder.com/300x200" alt="">
-        <h3>Product 2</h3>
-        <p>₹1499</p>
-        <button onclick="addToCart()">Add to Cart</button>
-    </div>
-
-    <div class="product">
-        <img src="https://via.placeholder.com/300x200" alt="">
-        <h3>Product 3</h3>
-        <p>₹1999</p>
-        <button onclick="addToCart()">Add to Cart</button>
-    </div>
-</section>
-
-<footer>
-    © 2026 Lateral.in | All Rights Reserved
-</footer>
+</div>
 
 <script>
-let count = 0;
+function moveButton() {
+    let btn = document.getElementById("noBtn");
+    let x = Math.random() * (window.innerWidth - 100);
+    let y = Math.random() * (window.innerHeight - 100);
+    btn.style.left = x + "px";
+    btn.style.top = y + "px";
+}
 
-function addToCart() {
-    count++;
-    document.getElementById("cart-count").innerText = count;
+function showLove() {
+    document.getElementById("loveMsg").style.display = "block";
 }
 </script>
 
